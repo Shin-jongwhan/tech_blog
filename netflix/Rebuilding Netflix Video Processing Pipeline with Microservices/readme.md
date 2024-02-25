@@ -15,21 +15,32 @@
 ## video service(processing)
 ### 이전 블로그인 [High Quality Video Encoding at Scale](https://netflixtechblog.com/high-quality-video-encoding-at-scale-d159db052746) 내용을 정리하고 추가하여 각각의 프로세싱 명칭을 정하였다.
 1. Video Inspection Service (VIS)<br/>
-    - asdasd 
+    - downstream services를 위해 input, metadata를 검사한다.
 <br/>
 
 2. Complexity Analysis Service (CAS)
+    - mezzanine(이중층)이라고 표현하는데, 전체를 프로세싱 하기 전에 미리 검사하는 것이다. to understand the content complexity이라고 설명하였고
+    - pre-encoding이라고 한다(It calls Video Encoding Service for pre-encoding and Video Quality Service for quality evaluation).
+    - 이렇게 processing된 data는 database에 저장되고 re-used할 수 있다고 한다.
 <br/>
 
 3. Ladder Generation Service (LGS)
+    -  다양한 encoding family를 지원하기 위해 entire bitrate ladder라는 걸 만든다.
+    -  optimization algorithm to create encoding recipes
+    -  종합하자면, 다양한 encoding 방식을 지원하고 최적화하는 작업을 해준다.
 <br/>
 
 4. Video Encoding Service (VES)
+    - LGS에서 넘어온 것을 encoding해주는 작업. 여기서는 위에서 소개한 이전 블로그를 참고하면 좋다.
+    - 병렬 처리가 이루어진다.
 <br/>
 
 5. Video Validation Service (VVS)
+    - encoding된 파일이 우리가 기대한 encoding 방식이 맞는지 확인한다.
+    - 아니면 alert 해준다.
 <br/>
 
 6. Video Quality Service (VQS)
+    - video encoding이 끝나면 quality score(VMAF)를 매기고 평가한다.
 <br/>
 
