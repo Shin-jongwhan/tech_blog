@@ -11,6 +11,14 @@
 ## overview
 ### 이 블로그 컨텐츠에서 설명하는 overview이다. 
 ### 비디오들을 각각 인식 -> ingest -> processing -> packaging -> deployment 순서다.
-### processing에는 다양한 codec file의 encoding 방식을 지원하는 것, 병렬 처리 등이 있다.
+### processing에는 다양한 codec file의 encoding 방식을 지원하는 것, 병렬 처리 등이 있다. 
+### 그리고 processing이 가능한 포맷인지 체크하는 단계도 포함되어 있다. 이를 inspection이라고 한다.
 ### deploy는 content delivery network for streaming에 따라 속도가 달라진다.
 #### ![image](https://github.com/Shin-jongwhan/tech_blog/assets/62974484/f8eb5c68-cd46-4f1a-843c-7cd059af61e4)
+### <br/><br/><br/>
+
+## data processing
+### inspection을 먼저 한다. processing이 가능한 포맷인지 확인한다. 15분 안쪽으로 수행된다.
+#### ![image](https://github.com/Shin-jongwhan/tech_blog/assets/62974484/f559f31e-8467-4eea-932b-12e4dec8b57f)
+### <br/>
+
