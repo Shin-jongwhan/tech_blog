@@ -22,3 +22,9 @@
 #### ![image](https://github.com/Shin-jongwhan/tech_blog/assets/62974484/f559f31e-8467-4eea-932b-12e4dec8b57f)
 ### <br/>
 
+### parallel video encoding
+### 클라우드의 발전으로, 다양한 크기의 소스를 병렬처리하는 것이 가능해졌다.
+### inspection이 끝나면 chunk 사이즈로 나눠서 프로세싱을 진행한다.
+### 프로세싱이 끝나고나면 각 chunk를 합치는 assembly 작업을 진행한다.
+### 이 때 data validation 작업이 진행되는데, order가 잘못되었거나 duplicated chunk가 있다거나, frame drop이 발견되었거나 하는 등을 검사한다.
+#### ![image](https://github.com/Shin-jongwhan/tech_blog/assets/62974484/f740fd04-f42b-4212-9231-f8a7cda0f6ed)
