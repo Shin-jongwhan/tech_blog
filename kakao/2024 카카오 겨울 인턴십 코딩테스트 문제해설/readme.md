@@ -1,9 +1,14 @@
 ### 240225
 ## [2024 카카오 겨울 인턴십 코딩테스트 문제해설](https://tech.kakao.com/2023/12/27/2024-coding-test-winter-internship/)
-### 어느 정도를 해야 하나 그냥 재미로 하나만 풀어봤는데 그렇게 어렵지는 않다.
+### 어느 정도를 해야 하나 그냥 재미로 하나만 풀어봤다.
 ### <br/>
 
 ## 1번 문제 : 가장 많이 받은 선물
+### 다른 사람은 어떻게 풀었나 한 번 봤는데 대체로 50줄 내였다.
+### 나는 목적 마다 함수화를 하였고, 중간중간마다 공백만 거의 30줄이다.
+### 그리고 문제에서 제한 사항으로 이런 이런 케이스는 안 됩니다 라고 써놨는데, 그러한 data_validation 작업을 다른 사람들은 안 해놨다는 게 신기했다. 오로지 정답을 위한 문제 풀이에 집중했다.
+
+### <br/>
 ### 코드
 ```
 def recieve_next_m(dicScore, sFriend_A, sFriend_B) : 
@@ -16,8 +21,6 @@ def recieve_next_m(dicScore, sFriend_A, sFriend_B) :
             dicScore[sFriend_B]['recieve_next_m'] += 1
     else : 
         dicScore[sFriend_B]['recieve_next_m'] += 1
-    #print(dicScore)
-    #print(sFriend_A, dicScore[sFriend_A], sFriend_B, dicScore[sFriend_B])
 
     return dicScore
 
@@ -59,11 +62,9 @@ def gift_validation(lsGift, lsFriend) :
 def make_data(lsG, dicScore) : 
     for i in range(0, len(lsG)) : 
         lsG_sub = lsG[i].split(" ")
-        #print(lsG_sub)
         dicScore[lsG_sub[0]]['give_score'] += 1
         dicScore[lsG_sub[1]]['recieve_score'] += 1
         dicScore[lsG_sub[0]]['give'][lsG_sub[1]] += 1
-        #print(dicScore)
     
     for i in dicScore.keys() : 
         dicScore[i]['present_score'] = dicScore[i]['give_score'] - dicScore[i]['recieve_score']
@@ -76,23 +77,14 @@ def solution(friends, gifts) :
         print("데이터 형식이 맞지 않습니다.")
         return -1
     
-    # dict.fromkeys(friends, {'give' : dict.fromkeys(friends, 0), 'give_score' : 0, 'recieve_score' : 0, 'present_score' : 0, 'recieve_next_m' : 0})
-    dicScore = {} 
-    for i in range(0, len(friends)) : 
-        dicScore[friends[i]] = {'give' : dict.fromkeys(friends, 0).copy(), 'give_score' : 0, 'recieve_score' : 0, 'present_score' : 0, 'recieve_next_m' : 0}
-    #print(dicScore)
+    dicScore = {i : {'give' : dict.fromkeys(friends, 0).copy(), 'give_score' : 0, 'recieve_score' : 0, 'present_score' : 0, 'recieve_next_m' : 0} for i in friends} 
     dicScore = make_data(gifts, dicScore)
-    #print(dicScore)
     
-    #print("")
     n = 1
     for i in range(0, len(friends) - 1) : 
         for j in range(n, len(friends)) :  
-            if i == j : 
-                continue
             dicScore = recieve_next_m(dicScore, friends[i], friends[j])
         n += 1
-    #print(list(map(lambda x : dicScore[x]['recieve_next_m'], dicScore)))
     answer = max(list(map(lambda x : dicScore[x]['recieve_next_m'], dicScore)))
     
     return answer
