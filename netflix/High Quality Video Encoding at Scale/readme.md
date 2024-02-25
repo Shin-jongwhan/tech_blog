@@ -32,5 +32,8 @@
 ### 설명은 잘 안 해주는데, 어떤 chunk에서 에러가 났을 때 전체가 프로세싱이 안 되서 이 부분에 대해서 굉장히 어려움을 겪고 있다고 한다.
 ### 그래서 모든 프로세싱이 complete 되기 전에 그 에러 난 chunk는 다시 프로세싱을 한다고 한다. 
 ### 아니면 냅두고 complete 시키는 것 같다.
+### <br/>
+
+### 그리고 마지막으로 video encoding 작업을 진행한다.
 #### ![image](https://github.com/Shin-jongwhan/tech_blog/assets/62974484/f740fd04-f42b-4212-9231-f8a7cda0f6ed)
 ### <br/>
