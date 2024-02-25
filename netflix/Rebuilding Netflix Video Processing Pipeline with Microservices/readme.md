@@ -46,6 +46,16 @@
 ### <br/><br/><br/>
 
 ## Service Orchestration
-### 이 주제의 첫 문장이 이것인데, 가장 의미 있는 문장이 아닐까 한다. 왜냐면 각각의 서비스들이 제 역할에 맞춰 운영이 되고 있다고 하고, 각 서비스들은 또한 잘 연결이 되어 있어 전체적으로 원활한 파이프라인 구성을 하고 있다는 의미가 되기 때문이다.
-### 이렇게 분업화되고 협업이 잘 이루어져야 모든 프로세싱이 잘 돌아간다.
+### 이 주제의 첫 문장이 이것이다.
 #### Each video service provides a dedicated functionality and they work together to generate the needed video assets.
+### 이게 가장 의미 있는 문장이 아닐까 한다. 왜냐면 각각의 서비스들이 제 역할에 맞춰 운영이 되고 있다고 하고, 각 서비스들은 또한 잘 연결이 되어 있어 전체적으로 원활한 파이프라인 구성을 하고 있다는 의미가 되기 때문이다.
+### 이렇게 분업화되고 협업이 잘 이루어져야 모든 프로세싱이 잘 돌아간다.
+### <br/>
+
+### video는 streaming을 위해 content delivery network (CDN)로 deploy된다.
+#### These videos can easily be watched millions of times. 
+### orchastrator는 다양한 작업을 수행한다.
+### orchastrator는 streaming을 위해 audio, text 등을 packaging 해서 containerize 하여 사용한다.
+#### It leverages VIS to detect and reject non-conformant or low-quality mezzanines, invokes LGS for encoding recipe optimization, encodes video using VES, and calls VQS for quality measurement where the quality data is further fed to Netflix’s data pipeline for analytics and monitoring purposes. In addition to video services, the Streaming Workflow Orchestrator uses audio and timed text services to generate audio and text assets, and packaging services to “containerize” assets for streaming.
+### <br/>
+
