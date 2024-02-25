@@ -59,3 +59,8 @@
 #### It leverages VIS to detect and reject non-conformant or low-quality mezzanines, invokes LGS for encoding recipe optimization, encodes video using VES, and calls VQS for quality measurement where the quality data is further fed to Netflix’s data pipeline for analytics and monitoring purposes. In addition to video services, the Streaming Workflow Orchestrator uses audio and timed text services to generate audio and text assets, and packaging services to “containerize” assets for streaming.
 ### <br/>
 
+### video pipeline은 크게 두 가지가 있다. 그리고 전체적인 workflow는 아래 모식도를 참고한다.
+### orchastrator가 전체적인 조율을 담당하고 있다.
+#### the two main use cases of the Netflix video pipeline are producing assets for member streaming and for studio operations.
+#### ![image](https://github.com/Shin-jongwhan/tech_blog/assets/62974484/8dcf6661-47b0-46d3-97ec-4d8fd0418c43)
+### <br/>
